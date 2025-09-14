@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Configure dark mode variant for Tailwind v4 */
+@variant dark (.dark &);
+
+@layer base {
+  /* Base styles for proper dark mode functionality */
+  :root {
+    color-scheme: light;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+  
+  /* Ensure proper background colors */
+  html {
+    @apply bg-white text-black;
+  }
+  
+  html.dark {
+    @apply bg-gray-900 text-white;
+  }
+}
