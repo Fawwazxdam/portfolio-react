@@ -298,8 +298,8 @@ const Portfolio = () => {
                   Frontend Programmer di Muatmuat, dengan fokus pada pengembangan aplikasi ERP dan sistem manajemen.
                 </p>
                 <p>
-                  Alumni D2 Teknik Informatika UNM dan lulusan bootcamp intensif Fullstack Web Developer 
-                  dengan sertifikasi dari LSK TIK.
+                  Alumni D2 Teknik Informatika UM dan lulusan bootcamp intensif Fullstack Web Developer 
+                  dengan sertifikasi dari LSK TIK (Lembaga Sertifikasi Kompetensi Teknik Informatika).
                 </p>
               </div>
             </Card>
@@ -546,7 +546,6 @@ const Portfolio = () => {
             <GlitchText>&lt;ADAMF/&gt;</GlitchText>
           </div>
           <p className="text-lg">© 2024 Adam Fawwaz Haq. Crafted with ❤️ and lots of ☕</p>
-          <p className="mt-2 opacity-70">Built with React.js & Tailwind CSS</p>
         </div>
       </footer>
 
