@@ -11,7 +11,7 @@ const FeaturedArticles = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/articles');
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/articles`);
         if (!response.ok) {
           throw new Error('Failed to fetch articles');
         }
@@ -49,7 +49,7 @@ const FeaturedArticles = () => {
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-100 dark:bg-gray-800">
+    <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <FileText size={60} className="mx-auto mb-6" />
