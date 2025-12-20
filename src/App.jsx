@@ -153,11 +153,11 @@ const Portfolio = () => {
       github: "#"
     },
     {
-      title: "Landing Page & Top-Up App",
-      description: "Berbagai proyek freelance termasuk landing page corporate dan aplikasi top-up game",
-      tech: ["Laravel", "React", "MySQL", "Graphic Design"],
-      demo: "#",
-      github: "#"
+      title: "Ayo on Time",
+      description: "Aplikasi Jurnal kehadiran siswa yang mencatat kehadiran siswa secara real-time",
+      tech: ["Next.js","Tailwind CSS","API Integration","Laravel", "MySQL", "Zustand"],
+      demo: "https://ayoontime.magentaa.space/",
+      github: "https://github.com/Fawwazxdam/attendance-app-fe.git"
     }
   ];
 
@@ -545,7 +545,7 @@ const Portfolio = () => {
           <div className="text-2xl font-black mb-4">
             <GlitchText>&lt;ADAMF/&gt;</GlitchText>
           </div>
-          <p className="text-lg">© 2024 Adam Fawwaz Haq. Crafted with ❤️ and lots of ☕</p>
+          <p className="text-lg">© 2024 Adam Fawwaz. Crafted with ❤️ and lots of ☕</p>
         </div>
       </footer>
 
