@@ -15,9 +15,11 @@ const Admin = () => {
   const [projectForm, setProjectForm] = useState({
     title: '',
     description: '',
-    tech: '',
-    demo: '',
-    github: ''
+    content: '',
+    technologies: '',
+    demoUrl: '',
+    githubUrl: '',
+    tags: ''
   });
 
   const [articles, setArticles] = useState([]);
@@ -121,9 +123,12 @@ const Admin = () => {
     const projectData = {
       title: projectForm.title,
       description: projectForm.description,
-      tech: projectForm.tech.split(',').map(t => t.trim()),
-      demo: projectForm.demo,
-      github: projectForm.github
+      content: projectForm.content,
+      technologies: projectForm.technologies.split(',').map(t => t.trim()),
+      demoUrl: projectForm.demoUrl,
+      githubUrl: projectForm.githubUrl,
+      authorId: 1, // Assuming default author ID
+      tags: projectForm.tags.split(',').map(tag => tag.trim())
     };
 
     try {
@@ -168,7 +173,7 @@ const Admin = () => {
     } catch (error) {
       alert('Error: ' + error.message);
     }
-    setProjectForm({ title: '', description: '', tech: '', demo: '', github: '' });
+    setProjectForm({ title: '', description: '', content: '', technologies: '', demoUrl: '', githubUrl: '', tags: '' });
   };
 
   const editArticle = (article) => {
@@ -209,9 +214,11 @@ const Admin = () => {
     setProjectForm({
       title: project.title,
       description: project.description,
-      tech: project.tech.join(','),
-      demo: project.demo,
-      github: project.github
+      content: project.content || '',
+      technologies: Array.isArray(project.technologies) ? project.technologies.join(',') : '',
+      demoUrl: project.demoUrl || project.demo || '',
+      githubUrl: project.githubUrl || project.github || '',
+      tags: project.tags ? project.tags.map(t => t.tag.name).join(',') : ''
     });
     setEditingProject(project);
   };
@@ -349,30 +356,50 @@ const Admin = () => {
                   />
                 </div>
                 <div>
+                  <label className="block font-bold mb-2">Content</label>
+                  <textarea
+                    value={projectForm.content}
+                    onChange={(e) => setProjectForm({...projectForm, content: e.target.value})}
+                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    rows="5"
+                  />
+                </div>
+                <div>
                   <label className="block font-bold mb-2">Technologies (comma separated)</label>
                   <input
                     type="text"
-                    value={projectForm.tech}
-                    onChange={(e) => setProjectForm({...projectForm, tech: e.target.value})}
+                    value={projectForm.technologies}
+                    onChange={(e) => setProjectForm({...projectForm, technologies: e.target.value})}
                     className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block font-bold mb-2">Demo URL</label>
+                  <label className="block font-bold mb-2">Tags (comma separated)</label>
                   <input
-                    type="url"
-                    value={projectForm.demo}
-                    onChange={(e) => setProjectForm({...projectForm, demo: e.target.value})}
+                    type="text"
+                    value={projectForm.tags}
+                    onChange={(e) => setProjectForm({...projectForm, tags: e.target.value})}
                     className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold mb-2">GitHub URL</label>
+                  <label className="block font-bold mb-2">Demo URL (optional)</label>
                   <input
-                    type="url"
-                    value={projectForm.github}
-                    onChange={(e) => setProjectForm({...projectForm, github: e.target.value})}
+                    type="text"
+                    placeholder="Enter demo URL or leave empty"
+                    value={projectForm.demoUrl}
+                    onChange={(e) => setProjectForm({...projectForm, demoUrl: e.target.value})}
+                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold mb-2">GitHub URL (optional)</label>
+                  <input
+                    type="text"
+                    placeholder="Enter GitHub URL or leave empty"
+                    value={projectForm.githubUrl}
+                    onChange={(e) => setProjectForm({...projectForm, githubUrl: e.target.value})}
                     className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
                   />
                 </div>
@@ -381,7 +408,7 @@ const Admin = () => {
                     {editingProject ? 'Update Project' : 'Add Project'}
                   </Button>
                   {editingProject && (
-                    <Button type="button" variant="secondary" onClick={() => { setEditingProject(null); setProjectForm({ title: '', description: '', tech: '', demo: '', github: '' }); }}>
+                    <Button type="button" variant="secondary" onClick={() => { setEditingProject(null); setProjectForm({ title: '', description: '', content: '', technologies: '', demoUrl: '', githubUrl: '', tags: '' }); }}>
                       Cancel
                     </Button>
                   )}

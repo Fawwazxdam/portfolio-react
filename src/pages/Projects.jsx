@@ -88,7 +88,7 @@ const Projects = () => {
 
                   <div className="mb-6">
                     <div className="flex flex-wrap gap-2">
-                      {(project.technologies || project.tech).map((tech) => (
+                      {Array.isArray(project.technologies || project.tech) && (project.technologies || project.tech).map((tech) => (
                         <span
                           key={tech}
                           className="px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-sm font-bold"

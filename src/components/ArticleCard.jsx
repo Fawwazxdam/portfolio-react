@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FileText, Calendar, User } from 'lucide-react';
 import Card from './Card.jsx';
 import Button from './Button.jsx';
 
 const ArticleCard = ({ article }) => {
+  const navigate = useNavigate();
+
   return (
     <Card animated={true}>
       <div className="flex items-center mb-4">
@@ -45,7 +48,11 @@ const ArticleCard = ({ article }) => {
         </div>
       )}
 
-      <Button className="w-full mt-4 text-sm py-2" variant="outline">
+      <Button
+        className="w-full mt-4 text-sm py-2"
+        variant="outline"
+        onClick={() => navigate(`/articles/${article.id}`)}
+      >
         READ MORE
       </Button>
     </Card>
