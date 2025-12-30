@@ -4,7 +4,9 @@ import {
   Github, Linkedin, Mail, Phone, Code, Globe,
   User, Briefcase, MessageCircle, ChevronDown, ExternalLink,
   Terminal, Coffee, Zap, Star, ArrowUp,
-  Instagram
+  Instagram,
+  Swords,
+  ContactRound
 } from 'lucide-react';
 import { useTheme } from '../ThemeContext.jsx';
 import {
@@ -95,7 +97,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <Section id="about" title="ABOUT ME" className="bg-gray-100 dark:bg-gray-800">
+      <Section id="about" title="ABOUT ME" icon={User} className="bg-gray-100 dark:bg-gray-800">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Card>
@@ -176,7 +178,7 @@ const Home = () => {
       </Section>
 
       {/* Skills Section */}
-      <Section id="skills" title="SKILLS">
+      <Section id="skills" title="SKILLS" icon={Swords}>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => {
             const IconComponent = skill.icon;
@@ -227,62 +229,13 @@ const Home = () => {
       </Section>
 
       {/* Projects Section */}
-      {/* <Section id="projects" title="PROJECTS" className="bg-gray-100 dark:bg-gray-800">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card key={project.title} animated={true}>
-              <div className="flex items-center mb-4">
-                <Briefcase size={30} className="mr-3" />
-                <h3 className="text-xl font-bold">{project.title}</h3>
-              </div>
-
-              <p className="mb-6 leading-relaxed">{project.description}</p>
-
-              <div className="mb-6">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-sm font-bold"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <Button className="flex-1 text-sm py-2 px-4" onClick={() => window.open(project.demo, '_blank')}>
-                  <ExternalLink size={16} className="mr-2" />
-                  DEMO
-                </Button>
-                <Button variant="secondary" className="flex-1 text-sm py-2 px-4" onClick={() => window.open(project.github, '_blank')}>
-                  <Github size={16} className="mr-2" />
-                  CODE
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-12 flex gap-4 justify-center">
-          <Button onClick={() => window.open('https://github.com/Fawwazxdam', '_blank')}>
-            SEE ALL PROJECTS ON GITHUB
-          </Button>
-          <Link to="/projects">
-          <Button variant='secondary'>
-            SEE OTHER PROJECTS
-          </Button>
-          </Link>
-        </div>
-      </Section> */}
       <FeaturedProjects />
 
       {/* Featured Articles Section */}
       <FeaturedArticles />
 
       {/* Contact Section */}
-      <Section id="contact" title="CONTACT" className="bg-gray-100 dark:bg-gray-800">
+      <Section id="contact" title="CONTACT" icon={ContactRound} className="bg-gray-100 dark:bg-gray-800">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <Card>

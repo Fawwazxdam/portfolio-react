@@ -16,8 +16,8 @@ const FeaturedArticles = () => {
           throw new Error('Failed to fetch articles');
         }
         const data = await response.json();
-        // Filter only published articles and take first 3
-        const publishedArticles = data.filter(article => article.published).slice(0, 3);
+        // Take first 3 articles (regardless of published status)
+        const publishedArticles = data.slice(0, 3);
         setArticles(publishedArticles);
       } catch (err) {
         setError(err.message);

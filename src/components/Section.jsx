@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Section = ({ id, title, children, className = '' }) => {
+const Section = ({ id, title, icon: Icon, children, className = '' }) => {
   return (
     <section id={id} className={`py-16 px-4 ${className}`}>
       <div className="max-w-6xl mx-auto">
+        {Icon && <Icon size={60} className="mx-auto mb-6" />}
         <h2 className="text-4xl md:text-6xl font-mono font-black mb-12 text-center border-b-4 border-black dark:border-white pb-4">
           {title}
         </h2>

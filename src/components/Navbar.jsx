@@ -12,7 +12,7 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
     // { name: 'home', label: 'HOME', path: '/' },
     { name: 'about', label: 'ABOUT', path: '/#about' },
     // { name: 'skills', label: 'SKILLS', path: '/#skills' },
-    { name: 'projects', label: 'PROJECTS', path: currentPage === 'home' ? '/#projects' : '/projects' },
+    { name: 'projects', label: 'PROJECTS', path: '/projects' },
     // { name: 'contact', label: 'CONTACT', path: '/#contact' },
   ];
 
