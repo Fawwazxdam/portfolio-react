@@ -266,7 +266,7 @@ const Home = () => {
                   <Github size={20} className="mr-2" />
                   GITHUB
                 </Button>
-                <Button variant="secondary" onClick={() => window.open('https://linkedin.com/in/adam-fawwaz-a24118214', '_blank')}>
+                <Button variant="secondary" onClick={() => window.open('https://linkedin.com/in/adam-fawwaz', '_blank')}>
                   <Linkedin size={20} className="mr-2" />
                   LINKEDIN
                 </Button>
