@@ -30,7 +30,7 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-b-4 border-black dark:border-white transition-colors duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-nav transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="text-2xl font-black hover:scale-105 transition-transform">
           <GlitchText>
@@ -46,7 +46,7 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
               to={item.path}
               onClick={() => handleNavClick(item)}
               className={`font-bold uppercase tracking-wider hover:scale-110 transition-transform ${
-                currentPage === item.name ? 'border-b-2 border-black dark:border-white' : ''
+                currentPage === item.name ? 'border-b-2 border-black/60 dark:border-white/60' : ''
               }`}
             >
               {item.label}
@@ -56,10 +56,9 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
 
         {/* Desktop Controls */}
         <div className="hidden md:flex items-center space-x-4">
-          {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300"
+            className="p-2 rounded-xl bg-white/50 dark:bg-white/8 backdrop-blur-xl border border-white/50 dark:border-white/12 text-black dark:text-white hover:bg-white/60 dark:hover:bg-white/14 transition-all duration-300 shadow-sm"
             aria-label="Toggle dark mode"
           >
             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -68,16 +67,14 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
 
         {/* Mobile Controls */}
         <div className="md:hidden flex items-center space-x-2">
-          {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 border-2 border-black dark:border-white text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300"
+            className="p-2 rounded-xl bg-white/50 dark:bg-white/8 backdrop-blur-xl border border-white/50 dark:border-white/12 text-black dark:text-white hover:bg-white/60 dark:hover:bg-white/14 transition-all duration-300 shadow-sm"
             aria-label="Toggle dark mode"
           >
             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -88,13 +85,13 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden border-t-4 border-black dark:border-white bg-white dark:bg-gray-900">
+        <div className="md:hidden border-t border-white/40 dark:border-white/10 bg-white/70 dark:bg-white/8 backdrop-blur-xl">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
               onClick={() => handleNavClick(item)}
-              className="block w-full py-4 px-4 font-bold uppercase tracking-wider text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300"
+              className="block w-full py-4 px-4 font-bold uppercase tracking-wider text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-300"
             >
               {item.label}
             </Link>

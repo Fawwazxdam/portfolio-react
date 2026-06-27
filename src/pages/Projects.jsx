@@ -6,7 +6,8 @@ import {
   LoadingSpinner,
   ErrorMessage,
   Card,
-  Navbar
+  Navbar,
+  Footer
 } from '../components/index.js';
 
 const Projects = () => {
@@ -55,7 +56,7 @@ const Projects = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-mono">
+    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
       {/* Navigation */}
       <Navbar currentPage="projects" />
 
@@ -63,11 +64,11 @@ const Projects = () => {
         {/* Header */}
         <section className="pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <Briefcase size={80} className="mx-auto mb-8" />
+            <Briefcase size={48} className="mx-auto mb-8 text-black/50 dark:text-white/50" />
             <h1 className="text-4xl md:text-6xl font-black mb-6">
               PROJECTS
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
               Latest projects and works from the portfolio
             </p>
           </div>
@@ -80,18 +81,18 @@ const Projects = () => {
               {projects.map((project) => (
                 <Card key={project.id || project.title} animated={true}>
                   <div className="flex items-center mb-4">
-                    <Briefcase size={30} className="mr-3" />
+                    <Briefcase size={30} className="mr-3 text-black/60 dark:text-white/60" />
                     <h3 className="text-xl font-bold">{project.title}</h3>
                   </div>
 
-                  <p className="mb-6 leading-relaxed">{project.description}</p>
+                  <p className="mb-6 leading-relaxed text-black/70 dark:text-white/70">{project.description}</p>
 
                   <div className="mb-6">
                     <div className="flex flex-wrap gap-2">
                       {Array.isArray(project.technologies || project.tech) && (project.technologies || project.tech).map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-sm font-bold"
+                          className="px-3 py-1 bg-black/80 dark:bg-white/80 text-white dark:text-black text-sm font-bold rounded-lg"
                         >
                           {tech}
                         </span>
@@ -115,11 +116,7 @@ const Projects = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black dark:bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-lg">© 2024 Adam Fawwaz Haq. Crafted with ❤️ and lots of ☕</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

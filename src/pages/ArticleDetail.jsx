@@ -7,7 +7,8 @@ import {
   LoadingSpinner,
   ErrorMessage,
   Navbar,
-  Card
+  Card,
+  Footer
 } from '../components/index.js';
 
 const ArticleDetail = () => {
@@ -113,7 +114,7 @@ const ArticleDetail = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-mono">
+    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
       {/* Navigation */}
       <Navbar currentPage="articles" />
 
@@ -136,11 +137,11 @@ const ArticleDetail = () => {
         <section className="pb-16 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
-              <FileText size={32} className="mr-4" />
+              <FileText size={32} className="mr-4 text-black/50 dark:text-white/50" />
               <h1 className="text-3xl md:text-5xl font-black">{article.title}</h1>
             </div>
 
-            <div className="flex items-center justify-between text-sm opacity-70 mb-8">
+            <div className="flex items-center justify-between text-sm text-black/50 dark:text-white/50 mb-8">
               <div className="flex items-center">
                 <User size={16} className="mr-1" />
                 <span>{article.author?.name || 'Unknown Author'}</span>
@@ -157,7 +158,7 @@ const ArticleDetail = () => {
                 {article.tags.map((articleTag) => (
                   <span
                     key={articleTag.tag.id}
-                    className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-sm font-bold rounded"
+                    className="px-3 py-1 bg-black/10 dark:bg-white/10 text-sm font-bold rounded-lg"
                   >
                     {articleTag.tag.name}
                   </span>
@@ -166,7 +167,7 @@ const ArticleDetail = () => {
             )}
 
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="text-lg leading-relaxed whitespace-pre-line">{article.content}</p>
+              <p className="text-lg leading-relaxed whitespace-pre-line text-black/70 dark:text-white/70">{article.content}</p>
             </div>
           </div>
         </section>
@@ -175,7 +176,7 @@ const ArticleDetail = () => {
         <section className="pb-16 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-8">
-              <MessageCircle size={32} className="mr-4" />
+              <MessageCircle size={32} className="mr-4 text-black/50 dark:text-white/50" />
               <h2 className="text-2xl font-bold">Comments ({comments.length})</h2>
             </div>
 
@@ -189,7 +190,7 @@ const ArticleDetail = () => {
                     type="text"
                     value={commentForm.name}
                     onChange={(e) => setCommentForm({...commentForm, name: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     placeholder="Your name"
                   />
                 </div>
@@ -198,7 +199,7 @@ const ArticleDetail = () => {
                   <textarea
                     value={commentForm.content}
                     onChange={(e) => setCommentForm({...commentForm, content: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none resize-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     rows="4"
                     placeholder="Write your comment here..."
                     required
@@ -216,29 +217,25 @@ const ArticleDetail = () => {
                 {comments.map((comment) => (
                   <Card key={comment.id}>
                     <div className="flex items-center mb-2">
-                      <User size={16} className="mr-2" />
+                      <User size={16} className="mr-2 text-black/50 dark:text-white/50" />
                       <span className="font-semibold">{comment.author?.name || 'Anonymous'}</span>
-                      <span className="ml-4 text-sm opacity-70">
+                      <span className="ml-4 text-sm text-black/50 dark:text-white/50">
                         {new Date(comment.createdAt).toLocaleDateString()}
                       </span>
                     </div>
-                    <p className="text-sm">{comment.content}</p>
+                    <p className="text-sm text-black/70 dark:text-white/70">{comment.content}</p>
                   </Card>
                 ))}
               </div>
             ) : (
-              <p className="text-center opacity-70">No comments yet. Be the first to comment!</p>
+              <p className="text-center text-black/50 dark:text-white/50">No comments yet. Be the first to comment!</p>
             )}
           </div>
         </section>
       </div>
 
       {/* Footer */}
-      <footer className="bg-black dark:bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-lg">© 2024 Adam Fawwaz Haq. Crafted with ❤️ and lots of ☕</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

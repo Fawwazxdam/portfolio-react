@@ -18,7 +18,8 @@ import {
   FloatingElement,
   Navbar,
   FeaturedArticles,
-  Logo
+  Logo,
+  Footer
 } from '../components/index.js';
 import FeaturedProjects from '../components/FeaturedProjects.jsx';
 
@@ -49,13 +50,14 @@ const Home = () => {
     { name: "Laravel", level: 85, icon: Terminal },
     { name: "Next.js", level: 80, icon: Code },
     { name: "React.js", level: 85, icon: Zap },
-    { name: "Node.js", level: 75, icon: Terminal },
-    { name: "JavaScript", level: 90, icon: Code },
-    { name: "MySQL", level: 80, icon: Globe },
+    { name: "Node.js", level: 85, icon: Terminal },
+    { name: "Vue.js", level: 80, icon: Code },
+    { name: "Express.js", level: 80, icon: Globe },
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-mono overflow-x-hidden transition-colors duration-300">
+    <>
+    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono overflow-x-hidden transition-colors duration-300 gradient-mesh-light">
       {/* Navigation */}
       <Navbar currentPage="home" showArticlesLink={true} />
 
@@ -64,7 +66,7 @@ const Home = () => {
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <FloatingElement delay={0}>
-              <Terminal size={80} className="mx-auto mb-8" />
+              <Terminal size={80} className="mx-auto mb-8 text-black/70 dark:text-white/70" />
             </FloatingElement>
           </div>
 
@@ -72,11 +74,11 @@ const Home = () => {
             <GlitchText>ADAM FAWWAZ HAQ</GlitchText>
           </h1>
 
-          <div className="text-xl md:text-3xl mb-8 h-16">
+          <div className="text-xl md:text-3xl mb-8 h-16 text-black/70 dark:text-white/70">
             <TypeWriter text="WEB DEVELOPER" speed={150} />
           </div>
 
-          <div className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+          <div className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed text-black/60 dark:text-white/60">
             Creating extraordinary web experiences with Laravel, React, and Next.js technologies.
             Experienced in ERP system development and modern applications.
           </div>
@@ -91,28 +93,29 @@ const Home = () => {
           </div>
 
           <div className="mt-16 animate-bounce">
-            <ChevronDown size={40} className="mx-auto" />
+            <ChevronDown size={40} className="mx-auto text-black/40 dark:text-white/40" />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <Section id="about" title="ABOUT ME" icon={User} className="bg-gray-100 dark:bg-gray-800">
+      <Section id="about" title="ABOUT ME" icon={User}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Card>
               <div className="flex items-center mb-6">
-                <User size={40} className="mr-4" />
+                <User size={40} className="mr-4 text-black/60 dark:text-white/60" />
                 <h3 className="text-2xl font-bold">Developer Profile</h3>
               </div>
-              <div className="space-y-4 text-lg leading-relaxed">
+              <div className="space-y-4 text-lg leading-relaxed text-black/70 dark:text-white/70">
                 <p>
                   I am a Web Developer with 3+ years of experience
-                  in developing modern web applications using technologies like Laravel, React, and Next.js.
+                  in developing modern web applications using technologies like Laravel, Express.js, Next.js, and Vue.js.
                 </p>
                 <p>
-                  Experienced as a Fullstack Developer at CV. Biliva Nature Indonesia and
-                  Frontend Programmer at Muatmuat, focusing on ERP application development and management systems.
+                  Experienced as a Fullstack Developer at CV. Biliva Nature Indonesia,
+                  Frontend Programmer at Muatmuat, focusing on ERP application development and management systems and
+                  active freelance Web Developer.
                 </p>
                 <p>
                   Alumni of D2 Computer Science at UM and graduate of intensive Fullstack Web Developer bootcamp
@@ -125,23 +128,23 @@ const Home = () => {
           <div className="space-y-6">
             <Card>
               <div className="flex items-center mb-4">
-                <Coffee size={30} className="mr-3" />
+                <Coffee size={30} className="mr-3 text-black/60 dark:text-white/60" />
                 <h4 className="text-xl font-bold">Fun Facts</h4>
               </div>
-              <ul className="space-y-2">
-                <li>💻 Expert in Laravel & React Ecosystem</li>
-                <li>🎨 Web Developer & Graphic Designer</li>
-                <li>🌍 Based in Surabaya, Indonesia</li>
-                <li>📚 Continuous learner & problem solver</li>
+              <ul className="space-y-2 text-black/70 dark:text-white/70">
+                <li>Expert in Laravel & Javascript Ecosystem</li>
+                <li>Web Developer & Graphic Designer</li>
+                <li>Based in Surabaya, Indonesia</li>
+                <li>Continuous learner & problem solver</li>
               </ul>
             </Card>
 
             <Card>
               <div className="flex items-center mb-4">
-                <Star size={30} className="mr-3" />
+                <Star size={30} className="mr-3 text-black/60 dark:text-white/60" />
                 <h4 className="text-xl font-bold">Experience</h4>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-3 text-black/70 dark:text-white/70">
                 <div>
                   <div className="font-bold">Frontend Programmer</div>
                   <div className="text-sm opacity-70">Muatmuat - Surabaya (Jul 2024 - Oct 2024)</div>
@@ -152,17 +155,17 @@ const Home = () => {
                 </div>
                 <div>
                   <div className="font-bold">Freelance Web Developer</div>
-                  <div className="text-sm opacity-70">Remote (Jul 2020 - Jan 2024)</div>
+                  <div className="text-sm opacity-70">Remote (Jul 2020 - now)</div>
                 </div>
               </div>
             </Card>
 
             <Card>
               <div className="flex items-center mb-4">
-                <Terminal size={30} className="mr-3" />
+                <Terminal size={30} className="mr-3 text-black/60 dark:text-white/60" />
                 <h4 className="text-xl font-bold">Education</h4>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-3 text-black/70 dark:text-white/70">
                 <div>
                   <div className="font-bold">D2 Computer Science</div>
                   <div className="text-sm opacity-70">State University of Malang (2018 - 2022)</div>
@@ -185,16 +188,16 @@ const Home = () => {
             return (
               <Card key={skill.name} animated={true}>
                 <div className="flex items-center mb-4">
-                  <IconComponent size={30} className="mr-3" />
+                  <IconComponent size={30} className="mr-3 text-black/60 dark:text-white/60" />
                   <h3 className="text-xl font-bold">{skill.name}</h3>
                 </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 border-2 border-black dark:border-white">
+                <div className="w-full rounded-full h-3 bg-black/10 dark:bg-white/10 overflow-hidden">
                   <div
-                    className="h-4 bg-black dark:bg-white transition-all duration-1000 delay-300"
+                    className="h-full bg-black dark:bg-white rounded-full transition-all duration-1000 delay-300"
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
-                <div className="text-right mt-2 font-bold">{skill.level}%</div>
+                <div className="text-right mt-2 font-bold text-black/60 dark:text-white/60">{skill.level}%</div>
               </Card>
             );
           })}
@@ -203,10 +206,10 @@ const Home = () => {
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold mb-8">OTHER TECHNOLOGIES</h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {['PHP', 'Express.js', 'API Integration', 'Git', 'UI/UX', 'Graphic Design', 'Problem Solving'].map((tech) => (
+            {['PHP', 'React.js', 'Astro', 'Nest.js', 'API Integration', 'Git', 'CI/CD', 'Docker', 'UI/UX', 'Graphic Design', 'Problem Solving'].map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300 font-bold"
+                className="px-4 py-2 rounded-xl bg-white/45 dark:bg-white/8 backdrop-blur-xl border border-white/50 dark:border-white/12 text-black dark:text-white hover:bg-white/55 dark:hover:bg-white/14 transition-colors duration-300 font-bold shadow-sm"
               >
                 {tech}
               </span>
@@ -217,10 +220,10 @@ const Home = () => {
         <div className="mt-12 text-center">
           <Card className="max-w-2xl mx-auto">
             <div className="flex items-center justify-center mb-4">
-              <Star size={30} className="mr-3" />
+              <Star size={30} className="mr-3 text-black/60 dark:text-white/60" />
               <h4 className="text-xl font-bold">Certification</h4>
             </div>
-            <p className="text-lg">
+            <p className="text-lg text-black/70 dark:text-white/70">
               <strong>Fullstack Web Developer</strong><br />
               Information Technology Competency Certification Agency (LSK TIK) - 2022
             </p>
@@ -235,28 +238,28 @@ const Home = () => {
       <FeaturedArticles />
 
       {/* Contact Section */}
-      <Section id="contact" title="CONTACT" icon={ContactRound} className="bg-gray-100 dark:bg-gray-800">
+      <Section id="contact" title="CONTACT" icon={ContactRound}>
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <Card>
               <h3 className="text-2xl font-bold mb-6">Let's Collaborate!</h3>
-              <p className="text-lg mb-8 leading-relaxed">
+              <p className="text-lg mb-8 leading-relaxed text-black/70 dark:text-white/70">
                 Have an interesting project or want to discuss web technologies?
                 Don't hesitate to contact me. I'm always open to new
                 opportunities and collaborations in web development!
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-4 text-black/70 dark:text-white/70">
                 <div className="flex items-center">
-                  <Mail size={24} className="mr-4" />
+                  <Mail size={24} className="mr-4 text-black/50 dark:text-white/50" />
                   <span className="text-lg">fawwazadam1005@gmail.com</span>
                 </div>
                 <div className="flex items-center">
-                  <Phone size={24} className="mr-4" />
+                  <Phone size={24} className="mr-4 text-black/50 dark:text-white/50" />
                   <span className="text-lg">+62 812 5235 5711</span>
                 </div>
                 <div className="flex items-center">
-                  <Globe size={24} className="mr-4" />
+                  <Globe size={24} className="mr-4 text-black/50 dark:text-white/50" />
                   <span className="text-lg">Surabaya, Indonesia</span>
                 </div>
               </div>
@@ -286,7 +289,7 @@ const Home = () => {
                   <label className="block font-bold mb-2">NAME</label>
                   <input
                     type="text"
-                    className="w-full p-3 border-2 border-black dark:border-white focus:outline-none focus:ring-0 bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     placeholder="Your Name"
                   />
                 </div>
@@ -294,7 +297,7 @@ const Home = () => {
                   <label className="block font-bold mb-2">EMAIL</label>
                   <input
                     type="email"
-                    className="w-full p-3 border-2 border-black text-black focus:outline-none focus:ring-0 bg-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     placeholder="email@domain.com"
                   />
                 </div>
@@ -302,7 +305,7 @@ const Home = () => {
                   <label className="block font-bold mb-2">MESSAGE</label>
                   <textarea
                     rows="5"
-                    className="w-full p-3 border-2 border-black dark:border-white focus:outline-none focus:ring-0 resize-none bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none resize-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     placeholder="Write your message here..."
                   ></textarea>
                 </div>
@@ -317,27 +320,20 @@ const Home = () => {
       </Section>
 
       {/* Footer */}
-      <footer className="bg-black dark:bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="text-2xl font-black mb-4">
-            <GlitchText>
-                <Logo className="text-white dark:text-white" />
-            </GlitchText>
-          </div>
-          <p className="text-lg">© 2024 Adam Fawwaz. Crafted with ❤️ and lots of ☕</p>
-        </div>
-      </footer>
+      <Footer />
+    </div>
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-black dark:bg-white text-white dark:text-black p-4 border-4 border-black dark:border-white hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white transition-colors duration-300 z-50 transform hover:scale-110"
+          className="fixed bottom-8 right-8 p-4 rounded-2xl bg-white/65 dark:bg-white/10 backdrop-blur-xl border border-white/50 dark:border-white/15 hover:bg-white/75 dark:hover:bg-white/16 transition-all duration-300 transform hover:scale-110 shadow-lg"
+          style={{ zIndex: 9999 }}
         >
           <ArrowUp size={24} />
         </button>
       )}
-    </div>
+    </>
   );
 };
 

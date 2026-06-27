@@ -49,14 +49,14 @@ const FeaturedArticles = () => {
   }
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <FileText size={60} className="mx-auto mb-6" />
+          <FileText size={48} className="mx-auto mb-6 text-black/50 dark:text-white/50" />
           <h2 className="text-4xl md:text-6xl font-mono font-black mb-6">
             LATEST ARTICLES
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
             Insights and thoughts on web development, technology, and programming
           </p>
         </div>

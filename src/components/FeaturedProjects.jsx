@@ -61,18 +61,18 @@ const FeaturedProjects = () => {
   return (
     <>
       {/* Header */}
-      <section className="pt-24 pb-16 px-4 bg-gray-100 dark:bg-gray-800">
+      <section className="pt-24 pb-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <Briefcase size={80} className="mx-auto mb-8" />
+          <Briefcase size={48} className="mx-auto mb-8 text-black/50 dark:text-white/50" />
           <h1 className="text-4xl md:text-6xl font-black mb-6">PROJECTS</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
             Latest projects and works from the portfolio
           </p>
         </div>
       </section>
 
       {/* Projects Grid */}
-      <section className="pb-16 px-4 bg-gray-100 dark:bg-gray-800">
+      <section className="pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
@@ -89,7 +89,7 @@ const FeaturedProjects = () => {
                     {(project.technologies || project.tech).map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-sm font-bold"
+                        className="px-3 py-1 bg-black/80 dark:bg-white/80 text-white dark:text-black text-sm font-bold rounded-lg"
                       >
                         {tech}
                       </span>

@@ -14,7 +14,7 @@ const ArticleCard = ({ article }) => {
         <h3 className="text-xl font-bold line-clamp-2">{article.title}</h3>
       </div>
 
-      <p className="mb-4 leading-relaxed line-clamp-3">{article.content}</p>
+      <p className="mb-4 leading-relaxed line-clamp-3 text-black/70 dark:text-white/70">{article.content}</p>
 
       {/* Tags */}
       {article.tags && article.tags.length > 0 && (
@@ -22,7 +22,7 @@ const ArticleCard = ({ article }) => {
           {article.tags.map((articleTag) => (
             <span
               key={articleTag.tag.id}
-              className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-xs font-bold rounded"
+              className="px-2 py-1 bg-black/10 dark:bg-white/10 text-xs font-bold rounded-lg"
             >
               {articleTag.tag.name}
             </span>
@@ -30,7 +30,7 @@ const ArticleCard = ({ article }) => {
         </div>
       )}
 
-      <div className="flex items-center justify-between text-sm opacity-70">
+      <div className="flex items-center justify-between text-sm text-black/50 dark:text-white/50">
         <div className="flex items-center">
           <User size={16} className="mr-1" />
           <span>{article.author?.name || 'Unknown Author'}</span>
@@ -43,7 +43,7 @@ const ArticleCard = ({ article }) => {
 
       {/* Comments count */}
       {article.comments && article.comments.length > 0 && (
-        <div className="mt-2 text-sm opacity-70">
+        <div className="mt-2 text-sm text-black/50 dark:text-white/50">
           💬 {article.comments.length} comment{article.comments.length !== 1 ? 's' : ''}
         </div>
       )}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Card, Navbar } from '../components/index.js';
+import { Button, Card, Navbar, Footer } from '../components/index.js';
 import { Plus, ArrowLeft } from 'lucide-react';
 
 const Admin = () => {
@@ -247,10 +247,10 @@ const Admin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-mono">
+    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
       <Navbar currentPage="admin" />
-      <div className="pt-24 pb-16 px-4">
-        <div className="max-w-4xl mx-auto">
+      <div className="flex-grow pt-24 pb-16 px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center mb-8">
             <Button variant="secondary" onClick={() => navigate('/')}>
               <ArrowLeft size={20} className="mr-2" />
@@ -259,11 +259,11 @@ const Admin = () => {
           </div>
           <h1 className="text-4xl font-black mb-12 text-center">ADMIN PANEL</h1>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 p-4">
             {/* Add Article */}
             <Card>
               <div className="flex items-center mb-6">
-                <Plus size={30} className="mr-3" />
+                <Plus size={30} className="mr-3 text-black/50 dark:text-white/50" />
                 <h2 className="text-2xl font-bold">{editingArticle ? 'Edit Article' : 'Add Article'}</h2>
               </div>
               <form onSubmit={handleArticleSubmit} className="space-y-4">
@@ -273,7 +273,7 @@ const Admin = () => {
                     type="text"
                     value={articleForm.title}
                     onChange={(e) => setArticleForm({...articleForm, title: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     required
                   />
                 </div>
@@ -282,7 +282,7 @@ const Admin = () => {
                   <textarea
                     value={articleForm.content}
                     onChange={(e) => setArticleForm({...articleForm, content: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none resize-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     rows="5"
                     required
                   />
@@ -293,7 +293,7 @@ const Admin = () => {
                     type="text"
                     value={articleForm.tags}
                     onChange={(e) => setArticleForm({...articleForm, tags: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                   />
                 </div>
                 <div>
@@ -302,7 +302,7 @@ const Admin = () => {
                     type="text"
                     value={articleForm.author}
                     onChange={(e) => setArticleForm({...articleForm, author: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     required
                   />
                 </div>
@@ -331,7 +331,7 @@ const Admin = () => {
             {/* Add Project */}
             <Card>
               <div className="flex items-center mb-6">
-                <Plus size={30} className="mr-3" />
+                <Plus size={30} className="mr-3 text-black/50 dark:text-white/50" />
                 <h2 className="text-2xl font-bold">{editingProject ? 'Edit Project' : 'Add Project'}</h2>
               </div>
               <form onSubmit={handleProjectSubmit} className="space-y-4">
@@ -341,7 +341,7 @@ const Admin = () => {
                     type="text"
                     value={projectForm.title}
                     onChange={(e) => setProjectForm({...projectForm, title: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     required
                   />
                 </div>
@@ -350,7 +350,7 @@ const Admin = () => {
                   <textarea
                     value={projectForm.description}
                     onChange={(e) => setProjectForm({...projectForm, description: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none resize-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     rows="3"
                     required
                   />
@@ -360,7 +360,7 @@ const Admin = () => {
                   <textarea
                     value={projectForm.content}
                     onChange={(e) => setProjectForm({...projectForm, content: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none resize-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     rows="5"
                   />
                 </div>
@@ -370,7 +370,7 @@ const Admin = () => {
                     type="text"
                     value={projectForm.technologies}
                     onChange={(e) => setProjectForm({...projectForm, technologies: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                     required
                   />
                 </div>
@@ -380,7 +380,7 @@ const Admin = () => {
                     type="text"
                     value={projectForm.tags}
                     onChange={(e) => setProjectForm({...projectForm, tags: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                   />
                 </div>
                 <div>
@@ -390,7 +390,7 @@ const Admin = () => {
                     placeholder="Enter demo URL or leave empty"
                     value={projectForm.demoUrl}
                     onChange={(e) => setProjectForm({...projectForm, demoUrl: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                   />
                 </div>
                 <div>
@@ -400,7 +400,7 @@ const Admin = () => {
                     placeholder="Enter GitHub URL or leave empty"
                     value={projectForm.githubUrl}
                     onChange={(e) => setProjectForm({...projectForm, githubUrl: e.target.value})}
-                    className="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-gray-800 text-black dark:text-white"
+                    className="w-full p-3 rounded-xl glass-input focus:outline-none text-black dark:text-white placeholder-black/30 dark:placeholder-white/30"
                   />
                 </div>
                 <div className="flex gap-2">
@@ -417,43 +417,46 @@ const Admin = () => {
             </Card>
           </div>
 
-          {/* Manage Articles */}
-          <Card className="mt-12">
-            <h2 className="text-2xl font-bold mb-6">Manage Articles</h2>
-            <div className="space-y-4">
-              {articles.map((article) => (
-                <div key={article.id} className="border-2 border-black dark:border-white p-4">
-                  <h3 className="font-bold text-lg">{article.title}</h3>
-                  <p className="text-sm opacity-70">{article.content.substring(0, 100)}...</p>
-                  <div className="mt-2 flex gap-2">
-                    <Button onClick={() => editArticle(article)}>Edit</Button>
-                    <Button variant="secondary" onClick={() => deleteArticle(article.id)}>Delete</Button>
+          <div className="flex w-full gap-8 items-baseline justify-center">
+            {/* Manage Articles */}
+            <Card className="mt-12">
+              <h2 className="text-2xl font-bold mb-6">Manage Articles</h2>
+              <div className="space-y-4">
+                {articles.map((article) => (
+                  <div key={article.id} className="glass rounded-xl p-4">
+                    <h3 className="font-bold text-lg">{article.title}</h3>
+                    <p className="text-sm text-black/50 dark:text-white/50">{article.content.substring(0, 100)}...</p>
+                    <div className="mt-2 flex gap-2">
+                      <Button onClick={() => editArticle(article)}>Edit</Button>
+                      <Button variant="secondary" onClick={() => deleteArticle(article.id)}>Delete</Button>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {articles.length === 0 && <p>No articles yet.</p>}
-            </div>
-          </Card>
+                ))}
+                {articles.length === 0 && <p className="text-black/50 dark:text-white/50">No articles yet.</p>}
+              </div>
+            </Card>
 
-          {/* Manage Projects */}
-          <Card className="mt-8">
-            <h2 className="text-2xl font-bold mb-6">Manage Projects</h2>
-            <div className="space-y-4">
-              {projects.map((project) => (
-                <div key={project.id} className="border-2 border-black dark:border-white p-4">
-                  <h3 className="font-bold text-lg">{project.title}</h3>
-                  <p className="text-sm opacity-70">{project.description.substring(0, 100)}...</p>
-                  <div className="mt-2 flex gap-2">
-                    <Button onClick={() => editProject(project)}>Edit</Button>
-                    <Button variant="secondary" onClick={() => deleteProject(project.id)}>Delete</Button>
+            {/* Manage Projects */}
+            <Card className="mt-8">
+              <h2 className="text-2xl font-bold mb-6">Manage Projects</h2>
+              <div className="space-y-4">
+                {projects.map((project) => (
+                  <div key={project.id} className="glass rounded-xl p-4">
+                    <h3 className="font-bold text-lg">{project.title}</h3>
+                    <p className="text-sm text-black/50 dark:text-white/50">{project.description.substring(0, 100)}...</p>
+                    <div className="mt-2 flex gap-2">
+                      <Button onClick={() => editProject(project)}>Edit</Button>
+                      <Button variant="secondary" onClick={() => deleteProject(project.id)}>Delete</Button>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {projects.length === 0 && <p>No projects yet.</p>}
-            </div>
-          </Card>
+                ))}
+                {projects.length === 0 && <p className="text-black/50 dark:text-white/50">No projects yet.</p>}
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

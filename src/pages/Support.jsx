@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DollarSign, ChevronDown, ChevronUp, HelpCircle, QrCode, X } from 'lucide-react';
 import { useTheme } from '../ThemeContext.jsx';
-import { Navbar, Card, Button } from '../components/index.js';
+import { Navbar, Card, Button, Footer } from '../components/index.js';
 import qrisImage from '../assets/qris.png';
 
 const Support = () => {
@@ -50,7 +50,7 @@ const Support = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-mono">
+    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
       {/* Navigation */}
       <Navbar currentPage="support" />
 
@@ -58,11 +58,11 @@ const Support = () => {
         {/* Header */}
         <section className="pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <HelpCircle size={80} className="mx-auto mb-8" />
+            <HelpCircle size={48} className="mx-auto mb-8 text-black/50 dark:text-white/50" />
             <h1 className="text-4xl md:text-6xl font-black mb-6">
               SUPPORT
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
               Support my work and help me continue creating amazing projects. Every contribution makes a difference!
             </p>
           </div>
@@ -74,9 +74,9 @@ const Support = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {supportMethods.map((method, index) => (
                 <Card key={index} className="text-center p-8 hover:scale-105 transition-transform">
-                  <method.icon size={48} className="mx-auto mb-4 text-black dark:text-white" />
+                  <method.icon size={48} className="mx-auto mb-4 text-black/60 dark:text-white/60" />
                   <h3 className="text-2xl font-bold mb-4">{method.title}</h3>
-                  <p className="mb-6">{method.description}</p>
+                  <p className="mb-6 text-black/70 dark:text-white/70">{method.description}</p>
                   <Button
                     as={method.action ? 'a' : 'button'}
                     href={method.action}
@@ -107,15 +107,15 @@ const Support = () => {
                     className="w-full flex justify-between items-center text-left"
                   >
                     <div className="flex items-center">
-                      <HelpCircle size={24} className="mr-4 text-black dark:text-white" />
+                      <HelpCircle size={24} className="mr-4 text-black/50 dark:text-white/50" />
                       <h3 className="text-xl font-bold">{faq.question}</h3>
                     </div>
                     {expandedFAQ === index ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
                   </button>
 
                   {expandedFAQ === index && (
-                    <div className="mt-4 pt-4 border-t border-gray-300 dark:border-gray-600">
-                      <p className="text-lg">{faq.answer}</p>
+                    <div className="mt-4 pt-4 border-t border-black/10 dark:border-white/10">
+                      <p className="text-lg text-black/70 dark:text-white/70">{faq.answer}</p>
                     </div>
                   )}
                 </Card>
@@ -127,23 +127,19 @@ const Support = () => {
 
       {/* QR Modal */}
       {showQRModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-25 flex items-center justify-center z-50" onClick={() => setShowQRModal(false)}>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-md w-full mx-4 relative" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setShowQRModal(false)} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50" onClick={() => setShowQRModal(false)}>
+          <div className="bg-white/80 dark:bg-white/10 backdrop-blur-2xl p-6 rounded-2xl max-w-md w-full mx-4 relative border border-white/60 dark:border-white/15 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setShowQRModal(false)} className="absolute top-2 right-2 text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors">
               <X size={24} />
             </button>
             <h2 className="text-2xl font-bold mb-4 text-center">QRIS Support</h2>
-            <img src={qrisImage} alt="QRIS Code" className="w-full h-auto" />
+            <img src={qrisImage} alt="QRIS Code" className="w-full h-auto rounded-xl" />
           </div>
         </div>
       )}
 
       {/* Footer */}
-      <footer className="bg-black dark:bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-lg">© 2024 Adam Fawwaz Haq. Crafted with ❤️ and lots of ☕</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

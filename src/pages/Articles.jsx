@@ -6,7 +6,8 @@ import {
   LoadingSpinner,
   ErrorMessage,
   ArticleCard,
-  Navbar
+  Navbar,
+  Footer
 } from '../components/index.js';
 
 const Articles = () => {
@@ -53,7 +54,7 @@ const Articles = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-mono">
+    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
       {/* Navigation */}
       <Navbar currentPage="articles" />
 
@@ -61,11 +62,11 @@ const Articles = () => {
         {/* Header */}
         <section className="pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <FileText size={80} className="mx-auto mb-8" />
+            <FileText size={48} className="mx-auto mb-8 text-black/50 dark:text-white/50" />
             <h1 className="text-4xl md:text-6xl font-black mb-6">
               ARTICLES
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
               Latest articles and insights from the world of web development
             </p>
           </div>
@@ -84,11 +85,7 @@ const Articles = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black dark:bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-lg">© 2024 Adam Fawwaz Haq. Crafted with ❤️ and lots of ☕</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
