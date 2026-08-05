@@ -6,7 +6,8 @@ import {
   Terminal, Coffee, Zap, Star, ArrowUp,
   Instagram,
   Swords,
-  ContactRound
+  ContactRound,
+  Download
 } from 'lucide-react';
 import { useTheme } from '../ThemeContext.jsx';
 import {
@@ -85,7 +86,7 @@ const Home = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button onClick={() => scrollToSection('projects')}>
-              VIEW PORTFOLIO
+              VIEW PROJECTS
             </Button>
             <Button variant="secondary" onClick={() => scrollToSection('contact')}>
               CONTACT ME
@@ -276,6 +277,10 @@ const Home = () => {
                 <Button variant="outline" onClick={() => window.open('https://instagram.com/youngdam_free', '_blank')}>
                   <Instagram size={20} className="mr-2" />
                   INSTAGRAM
+                </Button>
+                <Button variant="outline" onClick={() => window.open('/CV ADAM 26N-2.pdf', '_blank')}>
+                  <Download size={20} className="mr-2" />
+                  DOWNLOAD CV
                 </Button>
               </div>
             </Card>

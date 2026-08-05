@@ -7,10 +7,12 @@ import Projects from './pages/Projects.jsx';
 import Admin from './pages/Admin.jsx';
 import Support from './pages/Support.jsx';
 import FloatingButton from './components/FloatingButton.jsx';
+import CursorGlow from './components/CursorGlow.jsx';
 
 const App = () => {
   return (
     <>
+      <CursorGlow />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />

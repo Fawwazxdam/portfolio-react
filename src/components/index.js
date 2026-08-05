@@ -11,3 +11,4 @@ export { default as Navbar } from './Navbar.jsx';
 export { default as FeaturedArticles } from './FeaturedArticles.jsx';
 export { default as Logo } from './Logo.jsx';
 export { default as Footer } from './Footer.jsx';
+export { default as CursorGlow } from './CursorGlow.jsx';
