@@ -23,6 +23,7 @@ import {
   Footer
 } from '../components/index.js';
 import FeaturedProjects from '../components/FeaturedProjects.jsx';
+import cvIndonesian from '../assets/CV ADAM 26N-ID.pdf';
 
 const Home = () => {
   const { isDarkMode } = useTheme();
@@ -278,7 +279,7 @@ const Home = () => {
                   <Instagram size={20} className="mr-2" />
                   INSTAGRAM
                 </Button>
-                <Button variant="outline" onClick={() => window.open('/CV ADAM 26N-2.pdf', '_blank')}>
+                <Button variant="outline" onClick={() => window.open(cvIndonesian, '_blank')}>
                   <Download size={20} className="mr-2" />
                   DOWNLOAD CV
                 </Button>
