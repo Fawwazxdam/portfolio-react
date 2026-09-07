@@ -11,7 +11,7 @@ import {
   Download,
   MessageCircle,
 } from "lucide-react";
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { EnvelopeSimple, UserSwitchIcon } from "@phosphor-icons/react";
 import { Navbar, Footer, Button, Card } from "../components/index.js";
 import { SectionHeader } from "../components/Section.jsx";
 import ArcadeHub from "../components/arcade/ArcadeHub.jsx";
@@ -76,16 +76,16 @@ const Home = () => {
           <section className="py-16 px-4 text-center">
             <div className="mb-6">
               <Terminal size={48} className="mx-auto text-arcade-orange" />
+              {/* <UserSwitchIcon size={48} className="mx-auto text-arcade-orange" /> */}
             </div>
-            <h1 className="font-pixel text-2xl md:text-4xl text-arcade-orange neon-orange mb-4">
+            <h1 className="font-pixel text-2xl md:text-5xl text-arcade-orange neon-orange mb-4">
               ADAM FAWWAZ HAQ
             </h1>
             <p className="text-lg text-gray-600 dark:text-white/60 mb-2">
               WEB DEVELOPER
             </p>
             <p className="text-sm text-gray-400 dark:text-white/40 max-w-lg mx-auto">
-              Creating extraordinary web experiences with Laravel, React, and
-              Next.js technologies.
+              Fullstack Web Developer specializing in end-to-end solutions. Crafting seamless digital experiences with Laravel and the JavaScript ecosystem.
             </p>
           </section>
 
@@ -197,7 +197,7 @@ const Home = () => {
                     ></textarea>
                     <Button className="w-full text-xs">
                       <MessageCircle size={16} className="mr-2 inline" />
-                      SEND MESSAGE
+                      LET'S COLLABORATE
                     </Button>
                   </div>
                 </Card>

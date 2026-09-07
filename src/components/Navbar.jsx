@@ -29,7 +29,7 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 hover:scale-105 transition-transform">
-          <Gamepad2 size={20} className="text-arcade-orange" />
+          {/* <Gamepad2 size={20} className="text-arcade-orange" /> */}
           <GlitchText>
             <Logo />
           </GlitchText>

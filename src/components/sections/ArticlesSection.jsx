@@ -78,7 +78,7 @@ const ArticlesSection = () => {
       </div>
       <div className="text-center mt-8">
         <Button variant="secondary" onClick={() => navigate('/articles')}>
-          SEE MORE ARTICLES
+          READ FULL ARTICLES
         </Button>
       </div>
     </Section>
