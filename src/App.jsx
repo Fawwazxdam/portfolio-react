@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 import Home from './pages/Home.jsx';
 import Articles from './pages/Articles.jsx';
 import ArticleDetail from './pages/ArticleDetail.jsx';
@@ -11,7 +12,7 @@ import CursorGlow from './components/CursorGlow.jsx';
 
 const App = () => {
   return (
-    <>
+    <ErrorBoundary>
       <CursorGlow />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <FloatingButton />
-    </>
+    </ErrorBoundary>
   );
 };
 

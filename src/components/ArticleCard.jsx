@@ -9,20 +9,19 @@ const ArticleCard = ({ article }) => {
 
   return (
     <Card animated={true}>
-      <div className="flex items-center mb-4">
-        <FileText size={24} className="mr-3" />
-        <h3 className="text-xl font-bold line-clamp-2">{article.title}</h3>
+      <div className="flex items-center mb-3">
+        <FileText size={20} className="mr-2 text-arcade-pink" />
+        <h3 className="text-base font-bold line-clamp-2">{article.title}</h3>
       </div>
 
-      <p className="mb-4 leading-relaxed line-clamp-3 text-black/70 dark:text-white/70">{article.content}</p>
+      <p className="mb-3 leading-relaxed line-clamp-3 text-sm text-gray-500 dark:text-white/60">{article.content}</p>
 
-      {/* Tags */}
       {article.tags && article.tags.length > 0 && (
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className="mb-3 flex flex-wrap gap-1.5">
           {article.tags.map((articleTag) => (
             <span
               key={articleTag.tag.id}
-              className="px-2 py-1 bg-black/10 dark:bg-white/10 text-xs font-bold rounded-lg"
+              className="px-2 py-0.5 bg-arcade-pink/15 text-arcade-pink text-xs font-bold rounded-md"
             >
               {articleTag.tag.name}
             </span>
@@ -30,26 +29,25 @@ const ArticleCard = ({ article }) => {
         </div>
       )}
 
-      <div className="flex items-center justify-between text-sm text-black/50 dark:text-white/50">
+      <div className="flex items-center justify-between text-xs text-gray-400 dark:text-white/40">
         <div className="flex items-center">
-          <User size={16} className="mr-1" />
-          <span>{article.author?.name || 'Unknown Author'}</span>
+          <User size={12} className="mr-1" />
+          <span>{article.author?.name || 'Unknown'}</span>
         </div>
         <div className="flex items-center">
-          <Calendar size={16} className="mr-1" />
+          <Calendar size={12} className="mr-1" />
           <span>{new Date(article.createdAt).toLocaleDateString()}</span>
         </div>
       </div>
 
-      {/* Comments count */}
       {article.comments && article.comments.length > 0 && (
-        <div className="mt-2 text-sm text-black/50 dark:text-white/50">
-          💬 {article.comments.length} comment{article.comments.length !== 1 ? 's' : ''}
+        <div className="mt-2 text-xs text-gray-400 dark:text-white/40">
+          {article.comments.length} comment{article.comments.length !== 1 ? 's' : ''}
         </div>
       )}
 
       <Button
-        className="w-full mt-4 text-sm py-2"
+        className="w-full mt-3 text-xs py-2"
         variant="outline"
         onClick={() => navigate(`/articles/${article.id}`)}
       >

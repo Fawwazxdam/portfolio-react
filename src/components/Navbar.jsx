@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Gamepad2 } from 'lucide-react';
 import { useTheme } from '../ThemeContext.jsx';
 import { GlitchText, Logo } from './index.js';
 
@@ -9,11 +9,8 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    // { name: 'home', label: 'HOME', path: '/' },
     { name: 'about', label: 'ABOUT', path: '/#about' },
-    // { name: 'skills', label: 'SKILLS', path: '/#skills' },
     { name: 'projects', label: 'PROJECTS', path: '/projects' },
-    // { name: 'contact', label: 'CONTACT', path: '/#contact' },
   ];
 
   if (showArticlesLink) {
@@ -23,7 +20,6 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
   const handleNavClick = (item) => {
     setIsMenuOpen(false);
     if (item.path.startsWith('/#') && currentPage === 'home') {
-      // Scroll to section on home page
       const sectionId = item.path.substring(2);
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -31,22 +27,23 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-black hover:scale-105 transition-transform">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+        <Link to="/" className="flex items-center gap-2 hover:scale-105 transition-transform">
+          <Gamepad2 size={20} className="text-arcade-orange" />
           <GlitchText>
             <Logo />
           </GlitchText>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
               onClick={() => handleNavClick(item)}
-              className={`font-bold uppercase tracking-wider hover:scale-110 transition-transform ${
-                currentPage === item.name ? 'border-b-2 border-black/60 dark:border-white/60' : ''
+              className={`text-xs font-pixel tracking-wider hover:scale-110 transition-transform ${
+                currentPage === item.name ? 'text-arcade-orange neon-orange' : 'text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               {item.label}
@@ -55,13 +52,13 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
         </div>
 
         {/* Desktop Controls */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-3">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl bg-white/50 dark:bg-white/8 backdrop-blur-xl border border-white/50 dark:border-white/12 text-black dark:text-white hover:bg-white/60 dark:hover:bg-white/14 transition-all duration-300 shadow-sm"
+            className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300"
             aria-label="Toggle dark mode"
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </button>
         </div>
 
@@ -69,29 +66,30 @@ const Navbar = ({ showArticlesLink = true, currentPage = 'home' }) => {
         <div className="md:hidden flex items-center space-x-2">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl bg-white/50 dark:bg-white/8 backdrop-blur-xl border border-white/50 dark:border-white/12 text-black dark:text-white hover:bg-white/60 dark:hover:bg-white/14 transition-all duration-300 shadow-sm"
+            className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300"
             aria-label="Toggle dark mode"
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-gray-500 dark:text-white/60"
           >
-            {isMenuOpen ? <X size={24} className="text-black dark:text-white" /> : <Menu size={24} className="text-black dark:text-white" />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-white/40 dark:border-white/10 bg-white/70 dark:bg-white/8 backdrop-blur-xl">
+        <div className="md:hidden border-t border-gray-200 dark:border-white/10 bg-white/95 dark:bg-arcade-darker/95 backdrop-blur-xl">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
               onClick={() => handleNavClick(item)}
-              className="block w-full py-4 px-4 font-bold uppercase tracking-wider text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-300"
+              className="block w-full py-3 px-4 text-xs font-pixel tracking-wider text-gray-500 dark:text-white/60 hover:text-arcade-orange hover:bg-gray-100 dark:hover:bg-white/5 transition-all duration-300"
             >
               {item.label}
             </Link>
