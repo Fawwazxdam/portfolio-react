@@ -1,13 +1,20 @@
 import React from 'react';
 
-const Section = ({ id, title, icon: Icon, children, className = '' }) => {
+export const SectionHeader = ({ icon: Icon, title, subtitle }) => (
+  <div className="text-center mb-10">
+    {Icon && <Icon size={40} weight="duotone" className="mx-auto mb-4 text-arcade-orange" />}
+    <h2 className="font-pixel text-lg md:text-xl text-arcade-orange neon-orange mb-2">
+      {title}
+    </h2>
+    {subtitle && <p className="text-sm text-gray-400 dark:text-white/40">{subtitle}</p>}
+  </div>
+);
+
+const Section = ({ id, title, icon, subtitle, children, className = '' }) => {
   return (
-    <section id={id} className={`py-20 px-4 ${className}`}>
+    <section id={id} className={`py-16 px-4 ${className}`}>
       <div className="max-w-6xl mx-auto">
-        {Icon && <Icon size={48} className="mx-auto mb-6 text-black/60 dark:text-white/60" />}
-        <h2 className="text-4xl md:text-6xl font-mono font-black mb-14 text-center border-b border-black/15 dark:border-white/15 pb-4">
-          {title}
-        </h2>
+        <SectionHeader icon={icon} title={title} subtitle={subtitle} />
         {children}
       </div>
     </section>

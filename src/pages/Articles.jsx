@@ -54,7 +54,7 @@ const Articles = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
+    <div className="flex flex-col min-h-screen text-gray-900 dark:text-white font-mono overflow-x-hidden gradient-mesh-light scanline-overlay">
       {/* Navigation */}
       <Navbar currentPage="articles" />
 
@@ -62,11 +62,11 @@ const Articles = () => {
         {/* Header */}
         <section className="pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <FileText size={48} className="mx-auto mb-8 text-black/50 dark:text-white/50" />
-            <h1 className="text-4xl md:text-6xl font-black mb-6">
+            <FileText size={48} className="mx-auto mb-8 text-arcade-orange" />
+            <h1 className="font-pixel text-2xl md:text-5xl text-arcade-orange neon-orange mb-4">
               ARTICLES
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
+            <p className="text-sm text-gray-400 dark:text-white/40 max-w-lg mx-auto">
               Latest articles and insights from the world of web development
             </p>
           </div>

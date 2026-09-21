@@ -50,7 +50,7 @@ const Support = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen text-black dark:text-white font-mono gradient-mesh-light">
+    <div className="flex flex-col min-h-screen text-gray-900 dark:text-white font-mono overflow-x-hidden gradient-mesh-light scanline-overlay">
       {/* Navigation */}
       <Navbar currentPage="support" />
 
@@ -58,11 +58,11 @@ const Support = () => {
         {/* Header */}
         <section className="pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <HelpCircle size={48} className="mx-auto mb-8 text-black/50 dark:text-white/50" />
-            <h1 className="text-4xl md:text-6xl font-black mb-6">
+            <HelpCircle size={48} className="mx-auto mb-8 text-arcade-orange" />
+            <h1 className="font-pixel text-2xl md:text-5xl text-arcade-orange neon-orange mb-4">
               SUPPORT
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto text-black/60 dark:text-white/60">
+            <p className="text-sm text-gray-400 dark:text-white/40 max-w-lg mx-auto">
               Support my work and help me continue creating amazing projects. Every contribution makes a difference!
             </p>
           </div>
@@ -95,7 +95,7 @@ const Support = () => {
         {/* FAQ Section */}
         <section className="pb-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center mb-8">
+            <h2 className="font-pixel text-lg md:text-xl text-arcade-orange neon-orange text-center mb-8">
               FREQUENTLY ASKED QUESTIONS
             </h2>
 
