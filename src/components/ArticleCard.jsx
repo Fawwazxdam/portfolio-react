@@ -8,10 +8,10 @@ const ArticleCard = ({ article }) => {
   const navigate = useNavigate();
 
   return (
-    <Card animated={true}>
+    <Card animated={true} className="h-full flex flex-col">
       <div className="flex items-center mb-3">
         <FileText size={20} className="mr-2 text-arcade-pink" />
-        <h3 className="text-base font-bold line-clamp-2">{article.title}</h3>
+        <h3 className="text-base font-bold line-clamp-1">{article.title}</h3>
       </div>
 
       <p className="mb-3 leading-relaxed line-clamp-3 text-sm text-gray-500 dark:text-white/60">{article.content}</p>
@@ -47,7 +47,7 @@ const ArticleCard = ({ article }) => {
       )}
 
       <Button
-        className="w-full mt-3 text-xs py-2"
+        className="w-full mt-auto text-xs py-2"
         variant="outline"
         onClick={() => navigate(`/articles/${article.id}`)}
       >
