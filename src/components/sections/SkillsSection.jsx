@@ -1,70 +1,119 @@
 import React from 'react';
 import { Sword } from '@phosphor-icons/react';
-import { Terminal, Code, Zap, Globe, Star } from 'lucide-react';
+import { Star, Award } from 'lucide-react';
 import { Card, Section } from '../index.js';
 
-const skills = [
-  { name: 'Laravel', level: 85, icon: Terminal, color: '#FF2D20' },
-  { name: 'Next.js', level: 80, icon: Code, color: '#000000' },
-  { name: 'React.js', level: 85, icon: Zap, color: '#61DAFB' },
-  { name: 'Node.js', level: 85, icon: Terminal, color: '#339933' },
-  { name: 'Vue.js', level: 80, icon: Code, color: '#42B883' },
-  { name: 'Express.js', level: 80, icon: Globe, color: '#000000' },
+const categories = [
+  {
+    name: 'Frontend',
+    color: 'arcade-cyan',
+    skills: [
+      { name: 'React.js', color: '#61DAFB' },
+      { name: 'Next.js', color: '#000000' },
+      { name: 'Vue.js', color: '#42B883' },
+      { name: 'Astro', color: '#FF5D01' },
+      { name: 'TypeScript', color: '#3178C6' },
+    ],
+  },
+  {
+    name: 'Backend',
+    color: 'arcade-purple',
+    skills: [
+      { name: 'Laravel', color: '#FF2D20' },
+      { name: 'Node.js', color: '#339933' },
+      { name: 'Express.js', color: '#000000' },
+      { name: 'Nest.js', color: '#E0234E' },
+      { name: 'PHP', color: '#777BB4' },
+    ],
+  },
+  {
+    name: 'Database & API',
+    color: 'arcade-pink',
+    skills: [
+      { name: 'MySQL', color: '#4479A1' },
+      { name: 'PostgreSQL', color: '#4169E1' },
+      { name: 'REST API', color: '#009688' },
+    ],
+  },
+  {
+    name: 'Tools & DevOps',
+    color: 'arcade-yellow',
+    skills: [
+      { name: 'Git', color: '#F05032' },
+      { name: 'Docker', color: '#2496ED' },
+      { name: 'CI/CD', color: '#40A5F0' },
+      { name: 'Linux', color: '#FCC624' },
+    ],
+  },
+  {
+    name: 'Design & Other',
+    color: 'arcade-orange',
+    skills: [
+      { name: 'UI/UX', color: '#FF7262' },
+      { name: 'Figma', color: '#A259FF' },
+      { name: 'Problem Solving', color: '#00BCD4' },
+      { name: 'Team Leadership', color: '#9C27B0' },
+    ],
+  },
 ];
 
-const otherTechs = ['PHP', 'Astro', 'Nest.js', 'API Integration', 'Git', 'CI/CD', 'Docker', 'UI/UX', 'Graphic Design', 'Problem Solving'];
+const colorClassMap = {
+  'arcade-cyan': { bg: 'bg-arcade-cyan/15', text: 'text-arcade-cyan', dot: 'bg-arcade-cyan' },
+  'arcade-purple': { bg: 'bg-arcade-purple/15', text: 'text-arcade-purple', dot: 'bg-arcade-purple' },
+  'arcade-pink': { bg: 'bg-arcade-pink/15', text: 'text-arcade-pink', dot: 'bg-arcade-pink' },
+  'arcade-yellow': { bg: 'bg-arcade-yellow/15', text: 'text-arcade-yellow', dot: 'bg-arcade-yellow' },
+  'arcade-orange': { bg: 'bg-arcade-orange/15', text: 'text-arcade-orange', dot: 'bg-arcade-orange' },
+};
 
 const SkillsSection = () => {
-  const visibleSkills = skills;
-
   return (
-    <Section id="skills" title="SKILLS" icon={Sword}>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {visibleSkills.map((skill) => {
-          const IconComponent = skill.icon;
+    <Section id="skills" title="SKILLS & TECH STACK" icon={Sword}>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {categories.map((cat) => {
+          const cc = colorClassMap[cat.color];
           return (
-            <Card key={skill.name}>
-              <div className="flex items-center mb-3">
-                <IconComponent size={24} className="mr-2" style={{ color: skill.color }} />
-                <h3 className="text-base font-bold">{skill.name}</h3>
+            <Card key={cat.name}>
+              <div className="flex items-center mb-4">
+                <div className={`w-2 h-2 rounded-full ${cc.dot} mr-2`} />
+                <h3 className={`font-pixel text-xs ${cc.text}`}>{cat.name}</h3>
               </div>
-              <div className="w-full rounded-full h-2 bg-gray-200 dark:bg-white/10 overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-1000 delay-300"
-                  style={{ width: `${skill.level}%`, backgroundColor: skill.color }}
-                />
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg ${cc.bg} hover:scale-105 transition-transform duration-200`}
+                  >
+                    <div
+                      className="w-3 h-3 rounded-sm flex-shrink-0"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                    <span className="text-xs font-bold text-gray-700 dark:text-white/80">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <div className="text-right mt-1 font-bold text-xs text-gray-400 dark:text-white/50">{skill.level}%</div>
             </Card>
           );
         })}
       </div>
 
-      <div className="mt-12 text-center">
-        <h3 className="font-pixel text-xs text-arcade-cyan mb-6">OTHER TECHNOLOGIES</h3>
-        <div className="flex flex-wrap justify-center gap-2">
-          {otherTechs.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-white/60 text-xs hover:bg-gray-200 dark:hover:bg-white/10 transition-colors duration-300"
-            >
-              {tech}
-            </span>
-          ))}
+      <div className="flex items-center justify-center gap-4 flex-wrap">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10">
+          <Award size={16} className="text-arcade-yellow" />
+          <span className="text-xs font-bold text-gray-700 dark:text-white/80">
+            Fullstack Web Developer
+          </span>
+          <span className="text-xs text-gray-400 dark:text-white/40">
+            LSK TIK — 2022
+          </span>
         </div>
-      </div>
-
-      <div className="mt-8 text-center">
-        <Card className="max-w-md mx-auto">
-          <div className="flex items-center justify-center mb-3">
-            <Star size={24} className="mr-2 text-arcade-yellow" />
-            <h4 className="font-pixel text-xs text-arcade-yellow">Certification</h4>
-          </div>
-          <p className="text-sm text-gray-600 dark:text-white/70">
-            <strong>Fullstack Web Developer</strong><br />
-            LSK TIK - 2022
-          </p>
-        </Card>
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10">
+          <Star size={16} className="text-arcade-pink" />
+          <span className="text-xs font-bold text-gray-700 dark:text-white/80">
+            5+ Projects Shipped
+          </span>
+        </div>
       </div>
     </Section>
   );

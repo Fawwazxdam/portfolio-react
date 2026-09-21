@@ -89,7 +89,7 @@ const ProjectsSection = () => {
         ))}
       </div>
       <div className="text-center mt-8">
-        <Button variant="secondary" onClick={() => navigate("/projects")}>
+        <Button variant="secondary" onClick={() => window.location.href = "/projects"}>
           BROWSE ALL PROJECTS
         </Button>
       </div>

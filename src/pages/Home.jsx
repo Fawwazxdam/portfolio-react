@@ -23,6 +23,7 @@ import BugSquasher from "../components/games/BugSquasher.jsx";
 import ArticlePuzzle from "../components/games/ArticlePuzzle.jsx";
 import AboutSection from "../components/sections/AboutSection.jsx";
 import ProjectsSection from "../components/sections/ProjectsSection.jsx";
+import GithubSection from "../components/sections/GithubSection.jsx";
 import SkillsSection from "../components/sections/SkillsSection.jsx";
 import ArticlesSection from "../components/sections/ArticlesSection.jsx";
 import cvIndonesian from "../assets/CV ADAM 26N-ID.pdf";
@@ -85,12 +86,13 @@ const Home = () => {
               WEB DEVELOPER
             </p>
             <p className="text-sm text-gray-400 dark:text-white/40 max-w-lg mx-auto">
-              Fullstack Web Developer specializing in end-to-end solutions. Crafting seamless digital experiences with Laravel and the JavaScript ecosystem.
+              A calm, realistic individual with a unique perspective—someone who doesn't say much but always has a reason behind every move. They enjoy the process, appreciate the simple things, and believe that small, consistent actions taken quietly often matter more than merely looking impressive.
             </p>
           </section>
 
           <AboutSection />
           <ProjectsSection />
+          {/* <GithubSection /> */}
           <SkillsSection />
           <ArticlesSection />
           <section id="arcade" className="py-16 px-4">
